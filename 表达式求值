@@ -1,0 +1,23 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>      //sort()的头文件
+using namespace std;
+vector<int> res;
+void px(int a,int b,int t)
+{
+    res.push_back(a+b+t);
+    res.push_back((a+b)*t);
+    res.push_back(a*b+t);
+    res.push_back(a*b*t);
+}
+int main()
+{
+    int a,b,c;
+    cin>>a>>b>>c;
+    px(a,b,c);
+    px(a,c,b);
+    px(b,c,a);
+    sort(res.begin(),res.end());
+    cout<<res[res.size()-1];
+    return 0;
+}
